@@ -23,5 +23,18 @@ import edu.kh.project.member.model.vo.Member;
 public interface MemberService {
 	
 	
+	/**
+	 * @param inputMember(Email/ Pw)
+	 * @return
+	 */
 	public abstract Member login(Member inputMember);
+
+
+
+	
+	/**
+	 * @param inputMember
+	 * @return
+	 */
+	public abstract int signUp(Member inputMember);
 }

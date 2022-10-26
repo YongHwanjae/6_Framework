@@ -3,6 +3,7 @@ package edu.kh.project.member.model.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.project.member.model.dao.MemberDAO;
 import edu.kh.project.member.model.vo.Member;
@@ -47,18 +48,59 @@ public class MemberServiceImpl implements MemberService{
 				// 3-1. 비밀번호가 일치하면 조회된 회원 정보 반환
 				//      단, 비밀번호는 제거
 				loginMember.setMemberPw(null);
+			
+			} else {
+				// 3-2. 비밀번호가 일치하지 않으면 null을 반환
+				loginMember = null;
+			
 			}
 			
-		} else {
-			// 3-2. 비밀번호가 일치하지 않으면 null을 반환
-			loginMember = null;
-			
-		}
-		
-		
-		
-		
+		} 
 		// DAO 코드
 		return loginMember;
 	}
+	
+	
+	/* ** 스프링에서 트랜잭션을 처리하는 방법
+	   - 선언적 트랜잭션 처리
+	   
+	   1) <tx:advice>를 이용한 XML 작성 방법
+	   
+	   2) @Transational 어노테이션 작성 방법
+	      - 클래스, 메서드 위에 작성 가능
+	      - 조건 : AOP를 이용한 기술 -> Service Interface 필요
+	              트랜잭션을 매니저가 bean으로 등록되어야함
+	              (root-context.xml)
+	   
+	   @ Transactional 어노테이션 특징
+	   - 예외가 발생한 경우 rollback 자동 진행
+	   - 예외의 기본값은 RuntimeException
+	     -> SQL 진행 시 발생하는 예외 == SQLException(RuntimeException 형제) - 다형성 적용 X
+	     -> 다른 예외도 rollback이 진행되고 싶다면
+	        rollbackFor = 예외클래스 작성하면된다.
+	     
+	   
+	   
+	
+	*/
+	// 회원가입 서비스
+	@Transactional(rollbackFor=Exception.class) // 모든 예외 발생시 롤백
+	@Override
+	public int signUp(Member inputMember) {
+		
+		//비밀번호 암호화
+		String encPw = bcrypt.encode(inputMember.getMemberPw());
+		inputMember.setMemberPw(encPw);
+		
+		// DAO 호출 후 결과 반환받기		
+		int result = dao.signUp(inputMember);
+		
+
+		
+		
+		
+		return result;
+	}
+	
+	
 }
