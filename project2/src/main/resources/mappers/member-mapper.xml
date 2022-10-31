@@ -76,7 +76,7 @@
  			-> SELECT MEMBER_NAME FROM "MEMBER";
    -->
   
- 	<!-- 로그인 -->																	<!-- resultMap 의 id  -->
+ 	<!-- 로그인 -->							<!-- resultMap 의 id  -->
   <select id="login"  parameterType="string"  resultMap="member_rm">
   	SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_PW, MEMBER_NICKNAME,
 			MEMBER_TEL, MEMBER_ADDRESS, PROFILE_IMG, AUTHORITY,
