@@ -4,7 +4,8 @@ console.log("main.js loaded");
 const saveId = document.getElementById("saveId");
 
 // radio, checkbox 값이 변할 때 발생하는 이벤트 : change
-saveId.addEventListener("change", function(){
+saveId.addEventListener("change", function(event){
+    console.log(event);
 
     // change는 체크가 되거나, 해제될 때 이벤트 발생
     // -> 체크되었는지 별도 검사 필요
@@ -46,7 +47,7 @@ function loginValidate(){
 
     // 이메일 입력 input 요소
     const memberEmail = document.querySelector("[name='memberEmail']");
-    
+
     // 비밀번호 입력 input 요소
     const memberPw = document.querySelector("[name='memberPw']");
 
