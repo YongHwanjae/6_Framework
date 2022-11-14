@@ -56,12 +56,19 @@ public class MyPageDAO {
 	 * @return result
 	 */
 	public int memberDelete(int memberNo) {
-		// TODO Auto-generated method stub
 		return sqlSession.update("myPageMapper.memberDelete", memberNo);
 	}
 
 
 
+	/** 프로필 이미지 수정
+	 * @param loginMember
+	 * @return result
+	 */
+	public int updateProfile(Member loginMember) {
+
+		return sqlSession.update("myPageMapper.updateProfile", loginMember);
+	}
 
 	
 }

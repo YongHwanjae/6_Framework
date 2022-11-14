@@ -135,7 +135,11 @@ nav{
     /* 어디 고정할지 지정 */
     top: 0;
     background-color: white;
+
+    z-index: 100;
 }
+
+
 
   /* ul 스타일 지정 */
   nav > ul{
