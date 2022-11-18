@@ -24,6 +24,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 
+	// 특정 게시판 목록 조회
 	@Override
 	public Map<String, Object> selectBoardList(int boardCode, int cp) {
 		
@@ -42,5 +43,13 @@ public class BoardServiceImpl implements BoardService {
 		map.put("boardList", boardList);
 		
 		return map;
+	}
+
+	// 게시글 상세 조회 + 이미지 목록 조회 + 댓글 목록 조회
+	@Override
+	public Board selectBoardDetail(int boardNo) {
+
+		return dao.selectBoardDetail(boardNo);
+		
 	}
 }

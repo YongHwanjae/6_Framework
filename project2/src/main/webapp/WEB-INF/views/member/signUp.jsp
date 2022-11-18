@@ -56,7 +56,7 @@
 
 
 
-                <!-- 비멀번호/비밀번호 확인 입력 -->
+                <!-- 비밀번호/비밀번호 확인 입력 -->
                 <label for="memberPw">
                     <span class="required">*</span> 비밀번호
                 </label>

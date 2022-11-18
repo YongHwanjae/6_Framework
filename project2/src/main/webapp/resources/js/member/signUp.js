@@ -327,6 +327,7 @@ function tempFn(){
 }
 
 
+
 // 전화번호 유효성 검사
 const memberTel = document.getElementById("memberTel"); // input
 const telMessage = document.getElementById("telMessage") // span
@@ -361,6 +362,7 @@ memberTel.addEventListener("input", function(){
     }
 
 });
+
 
 //-----------------------------------------------------
 // 이메일 인증코드 발송 / 확인

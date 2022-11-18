@@ -136,7 +136,15 @@ WHERE BOARD_CODE = 1
 AND BOARD_DEL_FL = 'N';
 
 
+-- 특정 게시글 상세 조회
+SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, 
+READ_COUNT, 
+TO_CHAR(B_CREATE_DATE, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') -- 2022년 11월 18일 10:33:21
+B_UPDATE_DATE, 
+FROM BOARD
+-- 특정 게시글 이미지 모두 조회
 
+-- 특정 게시글 댓글 모두 조회(어려움)
 
 
 

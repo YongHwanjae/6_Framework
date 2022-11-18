@@ -28,7 +28,7 @@ public interface AjaxService {
 
 
 
-	/** d이메일로 회원 정보 조회
+	/** 이메일로 회원 정보 조회
 	 * @param email
 	 * @return member
 	 */
