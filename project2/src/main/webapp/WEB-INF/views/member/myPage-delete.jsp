@@ -28,7 +28,7 @@
                     현재 비밀번호가 일치하는 경우 탈퇴할 수 있습니다.
                 </span>
                 
-                <form action="delete" method="POST" name="myPage-frm" id="memberDeleteForm" onsubmit="retrn memberDeleteValidate();">
+                <form action="delete" method="POST" name="myPage-frm" id="memberDeleteForm" onsubmit="return memberDeleteValidate()">
                     
                     <div class="myPage-row">
                         <label>비밀번호</label>
