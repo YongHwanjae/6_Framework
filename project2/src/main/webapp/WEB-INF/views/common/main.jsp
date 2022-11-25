@@ -116,7 +116,7 @@
                                     <button>로그인</button>
                                 </section>
                             </fieldset>
-                              
+                            
                             <%-- 쿠키에 saveId가 있을 경우 --%>
                             <c:if test="${!empty cookie.saveId.value}">
                                 <%-- temp 변수 선언 --%>
